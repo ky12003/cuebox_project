@@ -39,8 +39,8 @@ From these 2 key pieces of information, I made the following assumptions
 3. The constituents' donation
 
 ## Data Cleaning
-From manually looking at the data sheets, I found the primary key across the 3 input sheets to be **Patron ID**. I also noticed that in the donation history, there are statuses listed as "Refunded". 
-For these listings, **I assumed that the donation amount should be set to zero for "Refunded" listings since there was no income**. I also **assumed that the different types of campaigns were seperate events** for the sake of simplicity.
+From manually looking at the data sheets, I found the primary key across the 3 input sheets to be **Patron ID**.
+As an extra note, I **assumed that the different types of campaigns were seperate events** for the sake of simplicity.
 
 I then started following the requirements listed in each of the output sheets ("Output Format: CueBox Constituents", "Output Format: CueBox Tags"). Based on this, as well as observations from looking at the data, I made these requirements and assumptions about the data.
 ### CueBox Constituents
@@ -48,25 +48,27 @@ I then started following the requirements listed in each of the output sheets ("
 2. If the type field does not contain a person's name or company name, the corresponding row is invalid
     1. First/last name is required for "Person" types, while company name is required for "Company" types
     2. **Assuming that names should be kept uniform using convention of capitalized first letters for first/last names**
-3. If the "Created At" timestamp is empty, the corresponding row is invalid. (Found in: "Donation History")
+3. If the "Created At" timestamp is empty, the corresponding row is invalid. (Found in: "Constituents")
     1. **Assuming that the timestamp should be uniform in the Month DD, YYYY format**
-4. Email 1 and 2 are vaguely mentioned as having to be "standardized and well-formatted for a valid domain". (Found in "Donation History"/"Email")
+4. Email 1 and 2 are vaguely mentioned as having to be "standardized and well-formatted for a valid domain". (Found in "Constituents"/"Email")
     1. **Assuming that the "email-validator" library suffices to check that an email is "valid"**.
-    2. **Assuming Email 1 refers to the primary email from the "Donation History" sheet or the email from the "Emails" sheet in the absence of a valid primary email**
-    3. **Assuming Email 2 refers to an email from the "Emails" sheet in the presence of a different, valid primary email from the "Donation History" sheet**
-5. Title can be empty (Found in: "Donation History")
+    2. **Assuming Email 1 refers to the primary email from the "Constituents" sheet or the email from the "Emails" sheet in the absence of a valid primary email**
+    3. **Assuming Email 2 refers to an email from the "Emails" sheet in the presence of a different, valid primary email from the "Constituents" sheet**
+5. Title can be empty (Found in: "Constituents")
 6. Tags are passed through a given API to standardize: https://6719768f7fc4c5ff8f4d84f1.mockapi.io/api/v1/tags
     1. **Assuming that tag names without a mapped name should be kept as-is**
-7. Format standard for currency is "$x.xx"; formatted as a string (for empty-string case)
+7. Format standard for currency is "$x.xx"; formatted as a string (for empty-string case) (Found in "Donation History" sheet)
     1. **Assumes the "Lifetime Donation" is total donations/number of donations**
-8. **Assuming Month DD, YYYY format for most recent donation date**
-9. **Assuming that currency should follow the same format as lifetime donation**
+    2. **Assuming that the donation amount should be set to zero for "Refunded" listings since there was no income**
+8. **Assuming Month DD, YYYY format for most recent donation date** (Found in "Donation History" sheet)
+9. **Assuming that currency should follow the same format as lifetime donation** (Found in "Donation History" sheet)
 
 ### CueBox Tags
 1. **Assuming that tags should be passed through the same API to clean**
 2. **Assuming tag number is formatted as int**
 
 ## Output sheet creation
+The file format follows the following pipeline (made in draw.io):
 
 
 
