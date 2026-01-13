@@ -43,7 +43,7 @@ From manually looking at the data sheets, I found the primary key across the 3 i
 As an extra note, I **assumed that the different types of campaigns were seperate events** for the sake of simplicity.
 
 I then started following the requirements listed in each of the output sheets ("Output Format: CueBox Constituents", "Output Format: CueBox Tags"). Based on this, as well as observations from looking at the data, I made these requirements and assumptions about the data.
-### CueBox Constituents
+
 1. Constituent/Patron ID is a unique identifier; can be used for joins.
 2. If the type field does not contain a person's name or company name, the corresponding row is invalid
     1. First/last name is required for "Person" types, while company name is required for "Company" types
@@ -65,13 +65,15 @@ I then started following the requirements listed in each of the output sheets ("
 10. Combine Job Title & Marital Status to create background info (add semicolon to divide if both exist)
     1. **Assuming "Mrs. and Mr." means "Married"**
 
-### CueBox Tags
-**Assuming tag number is formatted as int**
+For CueBox Tags: **Assuming tag number is formatted as int**
 
 ## Output sheet creation
 The file format follows the following pipeline (made in draw.io):
+!(./images/diagram.png)
 
+"Rules" in the diagram refer to the rules defined in the "data cleaning" section. 
 
+The process essentially takes the 3 input sheets and combines them in a way that all the needed data for both outputs is on one sheet, fully cleaned and combined. 
 
 ## Conclusion & Questions
 I used various google searches to double-check my syntax, but most of my knowledge was given by my coursework. The project was made with extensive documentation in mind, while keeping in mind the speed needed for a project submitted on a rolling basis. Due to this, the documentation may look slightly messy, but it is hopefully structured enough for base-line readability.
