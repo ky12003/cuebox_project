@@ -48,6 +48,7 @@ I then started following the requirements listed in each of the output sheets ("
 2. If the type field does not contain a person's name or company name, the corresponding row is invalid
     1. First/last name is required for "Person" types, while company name is required for "Company" types
     2. **Assuming that names should be kept uniform using convention of capitalized first letters for first/last names**
+    3. **Assuming that if the first name is missing, so is the last name (and vice versa)**
 3. If the "Created At" timestamp is empty, the corresponding row is invalid. (Found in: "Constituents")
     1. **Assuming that the timestamp should be uniform in the Month DD, YYYY format**
 4. Email 1 and 2 are vaguely mentioned as having to be "standardized and well-formatted for a valid domain". (Found in "Constituents"/"Email")
