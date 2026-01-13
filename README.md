@@ -55,6 +55,7 @@ I then started following the requirements listed in each of the output sheets ("
     1. **Assuming that the "email-validator" library suffices to check that an email is "valid"**.
     2. **Assuming Email 1 refers to the primary email from the "Constituents" sheet or the email from the "Emails" sheet in the absence of a valid primary email**
     3. **Assuming Email 2 refers to an email from the "Emails" sheet in the presence of a different, valid primary email from the "Constituents" sheet**
+    4. **Assuming that the first valid secondary email should be chosen if there are multiple candidates**
 5. Title & Salutation can be empty (Found in: "Constituents")
 6. Tags are passed through a given API to standardize: https://6719768f7fc4c5ff8f4d84f1.mockapi.io/api/v1/tags
     1. **Assuming that tag names without a mapped name should be kept as-is**
