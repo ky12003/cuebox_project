@@ -69,7 +69,7 @@ For CueBox Tags: **Assuming tag number is formatted as int**
 
 ## Output sheet creation
 The file format follows the following pipeline (made in draw.io):
-!(./images/diagram.png)
+![output diagram](./images/diagram.png)
 
 "Rules" in the diagram refer to the rules defined in the "data cleaning" section. 
 
