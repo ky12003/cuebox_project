@@ -44,7 +44,7 @@ As an extra note, I **assumed that the different types of campaigns were seperat
 
 I then started following the requirements listed in each of the output sheets ("Output Format: CueBox Constituents", "Output Format: CueBox Tags"). Based on this, as well as observations from looking at the data, I made these requirements and assumptions about the data.
 ### CueBox Constituents
-1. Constituent ID is a unique identifier; can be used for joins.
+1. Constituent/Patron ID is a unique identifier; can be used for joins.
 2. If the type field does not contain a person's name or company name, the corresponding row is invalid
     1. First/last name is required for "Person" types, while company name is required for "Company" types
     2. **Assuming that names should be kept uniform using convention of capitalized first letters for first/last names**
@@ -54,18 +54,19 @@ I then started following the requirements listed in each of the output sheets ("
     1. **Assuming that the "email-validator" library suffices to check that an email is "valid"**.
     2. **Assuming Email 1 refers to the primary email from the "Constituents" sheet or the email from the "Emails" sheet in the absence of a valid primary email**
     3. **Assuming Email 2 refers to an email from the "Emails" sheet in the presence of a different, valid primary email from the "Constituents" sheet**
-5. Title can be empty (Found in: "Constituents")
+5. Title & Salutation can be empty (Found in: "Constituents")
 6. Tags are passed through a given API to standardize: https://6719768f7fc4c5ff8f4d84f1.mockapi.io/api/v1/tags
     1. **Assuming that tag names without a mapped name should be kept as-is**
 7. Format standard for currency is "$x.xx"; formatted as a string (for empty-string case) (Found in "Donation History" sheet)
     1. **Assumes the "Lifetime Donation" is total donations/number of donations**
-    2. **Assuming that the donation amount should be set to zero for "Refunded" listings since there was no income**
+    2. **Assuming that a donation should be dropped for "Refunded" listings since there was no income**
 8. **Assuming Month DD, YYYY format for most recent donation date** (Found in "Donation History" sheet)
 9. **Assuming that currency should follow the same format as lifetime donation** (Found in "Donation History" sheet)
+10. Combine Job Title & Marital Status to create background info (add semicolon to divide if both exist)
+    1. **Assuming "Mrs. and Mr." means "Married"**
 
 ### CueBox Tags
-1. **Assuming that tags should be passed through the same API to clean**
-2. **Assuming tag number is formatted as int**
+**Assuming tag number is formatted as int**
 
 ## Output sheet creation
 The file format follows the following pipeline (made in draw.io):
@@ -73,3 +74,11 @@ The file format follows the following pipeline (made in draw.io):
 
 
 ## Conclusion & Questions
+I used various google searches to double-check my syntax, but most of my knowledge was given by my coursework. The project was made with extensive documentation in mind, while keeping in mind the speed needed for a project submitted on a rolling basis. Due to this, the documentation may look slightly messy, but it is hopefully structured enough for base-line readability.
+
+Rule 10 was added a bit later, which is why it doesn't seem to fit the flow of the ruleset as much.
+
+One thing I did not account for in this project is the possibility that some of the fields I assumed were drop-down/multiple choice were manually typed; in which case, things like tags would break in its functionality. Another thing I started to notice when making this project was naming convention starting to break as more features get added. I would like to know what the best practices for the company are for this scenario!
+
+I would also like to know: in a real-job scenario, how fast do they want me to create these analytics, and how "in-depth" do they expect me to be? Though it is a vague question, I would like to know as much as possible about the data science timeline in the context of a fast-growing startup!
+Finally, I would like to know more about how you approach designing the data pipeline, as well as the visuals themselves, when presenting to potential stakeholders!
