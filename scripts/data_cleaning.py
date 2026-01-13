@@ -91,14 +91,28 @@ def constituents_processing(const_df):
 
 """
 Overview:
-Cleans/formats the data from the "" subsheet
+Cleans/formats the data from the "Donation History" subsheet
 
 Parameters:
-- const_df (df): Original "Constituents" dataframe
+- donations_df (df): Original "Donation History" dataframe
 
 Returns:
-- const_df (df): Cleaned dataframe
+- donations_df (df): Cleaned dataframe
 """
+def donation_history_processing(donations_df):
+    print("PROCESSING DONATION HISTORY....")
+    ##########
+    # Dropping refunds
+    ##########
+
+    ##########
+    # Formatting Amount/Date
+    ##########
+
+    
+
+    print("DONATION HISTORY DATA CLEANED!")
+    return donations_df
 
 ###########
 # HELPER FUNCTIONS
